@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Лабораторная работа №2 - вариант 715563</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <table id="layout-table">
+        <tr>
+            <td colspan="2" id="header-cell">
+                <header>
+                    <span class="header-subtext">Лабораторная работа №2 по веб-программированию</span><br>
+                    Иоффе Даниил Романович | Группа: P3207 | Вариант: 715563
+                </header>
+            </td>
+        </tr>
+        <tr>
+            <td class="content-cell">
+                <h2>Параметры точки</h2>
+                <form id="point-form" action="/fcgi-bin/app.jar" method="get" novalidate>
+                    <p><label for="x-val">Координата X (−3 &lt; X &lt; 5):</label></p>
+                    <input type="text" id="x-val" name="x" class="cord-val"
+                           inputmode="decimal" placeholder="Например: 1,5"
+                           autocomplete="off" aria-describedby="x-hint" required>
+                    <small id="x-hint">Границы −3 и 5 не входят в интервал</small>
+
+                    <fieldset>
+                        <legend>Координата Y:</legend>
+                        <div id="y-buttons">
+                            <button type="button" class="y-btn" value="-2" aria-pressed="false">−2</button>
+                            <button type="button" class="y-btn" value="-1.5" aria-pressed="false">−1,5</button>
+                            <button type="button" class="y-btn" value="-1" aria-pressed="false">−1</button>
+                            <button type="button" class="y-btn" value="-0.5" aria-pressed="false">−0,5</button>
+                            <button type="button" class="y-btn" value="0" aria-pressed="false">0</button>
+                            <button type="button" class="y-btn" value="0.5" aria-pressed="false">0,5</button>
+                            <button type="button" class="y-btn" value="1" aria-pressed="false">1</button>
+                            <button type="button" class="y-btn" value="1.5" aria-pressed="false">1,5</button>
+                            <button type="button" class="y-btn" value="2" aria-pressed="false">2</button>
+                        </div>
+                        <input type="hidden" id="y-val" name="y">
+                    </fieldset>
+
+                    <p><label for="r-val">Радиус R:</label></p>
+                    <select id="r-val" name="r" class="cord-val">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <p id="error-box" role="alert" hidden></p>
+                    <p><button type="submit" id="submit-btn">Проверить</button></p>
+                </form>
+                <p id="request-info" role="status" aria-live="polite">Загрузка истории</p>
+            </td>
+            <td class="content-cell canvas-cell">
+                <h2>Область</h2>
+                <canvas id="canvas" width="320" height="320"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="result-cell">
+                <h2>История проверок</h2>
+                <div class="table-wrap">
+                    <table id="result-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">X</th>
+                                <th scope="col">Y</th>
+                                <th scope="col">R</th>
+                                <th scope="col">Результат</th>
+                                <th scope="col">Время на сервере</th>
+                                <th scope="col">Время работы, мс</th>
+                            </tr>
+                        </thead>
+                        <tbody id="result-body">
+                            <tr><td colspan="6">Проверок еще нет</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
